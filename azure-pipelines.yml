@@ -37,3 +37,8 @@ steps:
     #ignoreLASTEXITCODE: false # Optional
     pwsh: true # Optional
     #workingDirectory: /home/vsts/work/1/s/
+- task: PowerShell@2
+  displayName: 'Publish Artifact: ArtifactName'
+  inputs:
+    ArtifactName: ArtifactName
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
